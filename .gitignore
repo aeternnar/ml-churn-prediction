@@ -1,3 +1,5 @@
 dataset/
 .ipynb_checkpoints/
 catboost_info/
+pipe_xgb.joblib
+pipe_cat.joblib
