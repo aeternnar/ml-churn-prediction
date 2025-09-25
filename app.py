@@ -1,6 +1,5 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi import Request
 import pandas as pd
@@ -44,7 +43,6 @@ async def predict(request: Request, file: UploadFile = File(...)):
     csv_bytes = output.getvalue().encode()
     b64_csv = base64.b64encode(csv_bytes).decode()
 
-    #table_html = X.to_html(index=False, classes="dataframe", border=0)
     table_html = X.to_html(index=False, classes="table table-striped table-hover table-bordered")
 
     return templates.TemplateResponse("results.html", {
